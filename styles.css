@@ -1,0 +1,465 @@
+/* Root Variables */
+:root {
+    --bg-color: #f0efea;
+    --text-color: #141413;
+    --border-color: #e6e4dd;
+    --footnote-bg-color: rgba(0, 0, 0, 0.08);
+    --footnote-hover-bg-color: rgba(0, 0, 0, 0.15);
+    --tooltip-bg-color: #f9f9f9;
+    --tooltip-text-color: #333;
+    --tooltip-shadow-color: rgba(0, 0, 0, 0.15);
+    --highlight-color: rgba(137, 137, 222, 0.3);
+}
+
+/* Dark Mode Variables */
+.dark-mode {
+    --bg-color: #141413;
+    --text-color: #f0efea;
+    --border-color: #444;
+    --footnote-bg-color: rgba(255, 255, 255, 0.15);
+    --footnote-hover-bg-color: rgba(255, 255, 255, 0.25);
+    --tooltip-bg-color: #2a2a2a;
+    --tooltip-text-color: #f0f0f0;
+    --tooltip-shadow-color: rgba(255, 255, 255, 0.15);
+    --highlight-color: rgba(137, 137, 222, 0.3);
+}
+
+/* Global Styles */
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    transition:
+        background-color 0.3s,
+        color 0.3s;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+/* Layout */
+.content-wrapper,
+header > div {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--bg-color);
+    padding: 20px 0;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+header h1 a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+}
+
+/* Toggle Switch Styles */
+.toggle-switch {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-left: 1em;
+}
+
+.toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-color);
+    transition: 0.3s;
+    border-radius: 34px;
+    border: 1px solid var(--text-color);
+}
+
+.toggle-slider {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--text-color);
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.toggle-input:checked + .toggle-label {
+    background-color: var(--text-color);
+}
+
+.toggle-input:checked + .toggle-label .toggle-slider {
+    transform: translateX(20px);
+    background-color: var(--bg-color);
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    margin-top: 2em;
+    margin-bottom: 0em;
+    text-align: left;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 24px;
+}
+h2 {
+    font-size: 20px;
+}
+h3 {
+    font-size: 18px;
+}
+
+.author-date {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Table of Contents Styles */
+#tocToggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+    padding: 0;
+    outline: none;
+}
+
+.toc-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--bg-color);
+    overflow-y: auto;
+    transition:
+        transform 0.3s ease-in-out,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+    box-sizing: border-box;
+    z-index: 999;
+    transform: translateX(-100%);
+    border-right: 1px solid transparent;
+    padding: 5px;
+}
+
+.toc-container h2 {
+    margin: 0;
+    padding: 120px 15px 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#tocList {
+    list-style-type: none;
+    padding: 0 15px 20px;
+    margin: 0;
+}
+
+#tocList li {
+    padding: 0;
+    margin: 0;
+}
+
+#tocList a {
+    display: block;
+    padding: 5px 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+#tocList a:hover {
+    text-decoration: underline;
+}
+
+#tocList a.active {
+    font-weight: bold;
+}
+
+body.toc-visible .toc-container {
+    transform: translateX(0);
+}
+
+/* Mobile TOC Styles */
+.mobile-toc-link {
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--text-color);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#tocCloseButton {
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-family: Georgia, serif;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #141413;
+    padding: 0;
+    outline: none;
+    font-weight: normal;
+}
+
+/* Footnote Styles */
+sup[id^="fnref"] {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.5em;
+    font-size: 0.85em;
+    line-height: 0;
+}
+
+sup[id^="fnref"] a {
+    text-decoration: none;
+    color: inherit;
+    padding: 1px 4px;
+    margin: 0 2px;
+    border-radius: 4px;
+    background-color: var(--footnote-bg-color);
+    transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+sup[id^="fnref"] a:hover,
+sup[id^="fnref"] a:focus {
+    background-color: var(--footnote-hover-bg-color);
+}
+
+sup[id^="fnref"] a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    border-radius: 4px;
+    z-index: -1;
+    transition: background-color 0.3s ease;
+}
+
+sup[id^="fnref"] a.highlight-target::before {
+    animation: highlight-fade 5s ease-out;
+}
+
+.footnote-tooltip {
+    position: absolute;
+    background-color: var(--tooltip-bg-color);
+    color: var(--tooltip-text-color);
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px var(--tooltip-shadow-color);
+    max-width: 300px;
+    z-index: 1000;
+    font-size: 15px;
+    line-height: 1.5;
+    pointer-events: auto;
+}
+
+.footnote-backref {
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footnotes {
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.footnotes ol {
+    padding-left: 20px;
+}
+
+.footnotes li {
+    margin-bottom: 10px;
+}
+
+.footnotes li p {
+    margin: 0;
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
+}
+
+.back-to-top {
+    text-align: center;
+    cursor: pointer;
+    font-weight: normal;
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 1076px) {
+    body {
+        font-size: 16px;
+    }
+
+    .content-wrapper,
+    header > div {
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    header {
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+    h2 {
+        font-size: 18px;
+    }
+    h3 {
+        font-size: 16px;
+    }
+
+    .author-date {
+        font-size: 0.8em;
+    }
+
+    .mobile-toc-link {
+        display: block;
+    }
+
+    .toc-container {
+        width: 100%;
+    }
+
+    #tocToggle {
+        display: none;
+    }
+
+    body.toc-visible #tocCloseButton {
+        display: block;
+    }
+
+    .content-wrapper {
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 800px) {
+    .content-wrapper,
+    header > div {
+        max-width: 95%;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .content-wrapper,
+    header > div {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+}
+
+/* Animations */
+@keyframes highlight-fade {
+    0%,
+    50% {
+        background-color: var(--highlight-color);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+/* Highlight Targets */
+sup[id^="fnref"] a.highlight-target::before,
+.footnote-backref.highlight-target,
+.footnotes li.highlight-target {
+    animation: highlight-fade 5s ease-out;
+}
+
+/* Transitions */
+body,
+html,
+.toc-container,
+#tocToggle,
+#tocCloseButton,
+footer,
+.back-to-top,
+sup[id^="fnref"] a {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}

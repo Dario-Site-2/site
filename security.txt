@@ -1,0 +1,4 @@
+# security.txt
+Contact: mailto:smca+ds@anthropic.com
+Expires: 2023-12-31T23:59:59.000Z
+Preferred-Languages: en

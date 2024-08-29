@@ -1,0 +1,2 @@
+console.log("%c\n Welcome to Dario Amodei's website!\n\n If you're curious about AI and its potential,\n you might enjoy working with us at Anthropic.\n\n Check out our openings: https://anthropic.com/careers", 
+    "font-family: monospace; font-size: 14px; color: #4a90e2; background-color: #f0f0f0; padding: 10px; border-radius: 5px;");
