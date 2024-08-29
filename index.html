@@ -1,121 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Dario Amodei</title>
-        <meta
-            name="description"
-            content="Future home of something quite cool"
-        />
-        <link rel="stylesheet" href="/styles.css" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="alternate icon" type="image/png" href="/favicon-32x32.png" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <script>
-            if (localStorage.getItem("darkMode") === "enabled") {
-                document.documentElement.classList.add("dark-mode");
-            }
-        </script>
-        <script src="/darkmode.js" defer></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dario Amodei</title>
+    <meta name="description" content="Future home of something quite cool" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/png" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <script>
+      if (localStorage.getItem("darkMode") === "enabled") {
+        document.documentElement.classList.add("dark-mode");
+      }
+    </script>
+    <script src="/darkmode.js" defer></script>
 
-        <meta property="og:title" content="Dario Amodei" />
-        <meta
-            property="og:description"
-            content="Future home of something quite cool"
-        />
-        <meta
-            property="og:image"
-            content="https://darioamodei.com/images/index-card-light.png"
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-    </head>
+    <meta property="og:title" content="Dario Amodei" />
+    <meta
+      property="og:description"
+      content="Future home of something quite cool"
+    />
+    <meta
+      property="og:image"
+      content="https://darioamodei.com/images/index-card-light.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
 
-    <body>
-        <header>
-            <div>
-                <h1><a href="/">Dario Amodei</a></h1>
-                <div class="toggle-switch">
-                    <input
-                        type="checkbox"
-                        id="darkModeToggle"
-                        class="toggle-input"
-                        aria-label="Toggle dark mode"
-                    />
-                    <label for="darkModeToggle" class="toggle-label">
-                        <span class="toggle-slider"></span>
-                    </label>
-                </div>
-            </div>
-        </header>
+  <body>
+    <header>
+      <div>
+        <h1><a href="/">Dario Amodei</a></h1>
+        <div class="toggle-switch">
+          <input
+            type="checkbox"
+            id="darkModeToggle"
+            class="toggle-input"
+            aria-label="Toggle dark mode"
+          />
+          <label for="darkModeToggle" class="toggle-label">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+    </header>
 
-        <script>
-            (function () {
-                var isDarkMode = localStorage.getItem("darkMode") === "enabled";
-                var toggle = document.getElementById("darkModeToggle");
-                if (toggle) {
-                    toggle.checked = isDarkMode;
-                }
-                document.documentElement.classList.toggle(
-                    "dark-mode",
-                    isDarkMode,
-                );
-            })();
-        </script>
+    <script>
+      (function () {
+        var isDarkMode = localStorage.getItem("darkMode") === "enabled";
+        var toggle = document.getElementById("darkModeToggle");
+        if (toggle) {
+          toggle.checked = isDarkMode;
+        }
+        document.documentElement.classList.toggle("dark-mode", isDarkMode);
+      })();
+    </script>
 
-        <main class="content-wrapper">
-            <section>
-                <p>
-                    Co-founder and CEO of Anthropic. <br />
-                    Building reliable, interpretable, and steerable AI systems.
-                    <br />
-                    <a
-                        href="https://claude.ai"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >Talk to Claude</a
-                    >.
-                </p>
-                <p>Here is another sentence.</p>
-                <p>And one more.</p>
-            </section>
+    <main class="content-wrapper">
+      <section>
+        <p>
+          Co-founder and CEO of Anthropic. <br />
+          Building reliable, interpretable, and steerable AI systems.
+          <br />
+          <a href="https://claude.ai" target="_blank" rel="noopener noreferrer"
+            >Talk to Claude</a
+          >.
+        </p>
+        <p>Here is another sentence.</p>
+        <p>And one more.</p>
+      </section>
 
-            <section>
-                <h2>Essays</h2>
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="essays/essay-title.html"
-                                >Essay title</a
-                            >
-                        </li>
-                        <!-- Add more essays here -->
-                    </ul>
-                </nav>
-            </section>
+      <section>
+        <h2>Essays</h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="essays/essay-title.html">Essay title</a>
+            </li>
+            <!-- Add more essays here -->
+          </ul>
+        </nav>
+      </section>
 
-            <section>
-                <h2>Research</h2>
-                <nav>
-                    <ul>
-                        <li>
-                            <a
-                                href="https://scholar.google.com/citations?user=6-e-ZBEAAAAJ&hl=en"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >Google Scholar</a
-                            >
-                        </li>
-                        <!-- Add more links here -->
-                    </ul>
-                </nav>
-            </section>
-        </main>
-        <script>
-            console.log(
-                "%cIf you're curious about making reliable, interpretable, and steerable AI systems, you might enjoy working with us at Anthropic. Take a look at our openings: https://anthropic.com/careers",
-                "font-family: monospace; font-size: 14px; color: #141413; background-color: #F0EFEA; padding: 5px; border-radius: 5px;",
-            );
-        </script>
-    </body>
+      <section>
+        <h2>Research</h2>
+        <nav>
+          <ul>
+            <li>
+              <a
+                href="https://scholar.google.com/citations?user=6-e-ZBEAAAAJ&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Google Scholar</a
+              >
+            </li>
+            <!-- Add more links here -->
+          </ul>
+        </nav>
+      </section>
+    </main>
+    <script>
+      console.log(
+        "%cIf you're curious about making reliable, interpretable, and steerable AI systems, you might enjoy working with us at Anthropic. Take a look at our openings: https://anthropic.com/careers",
+        "font-family: monospace; font-size: 14px; color: #141413; background-color: #F0EFEA; padding: 5px; border-radius: 5px;"
+      );
+    </script>
+  </body>
 </html>
